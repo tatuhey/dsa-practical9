@@ -1,4 +1,4 @@
-
+import java.util.*;
 /** 
 ** Software Technology 152
 ** Class to hold various static sort methods.
@@ -212,7 +212,7 @@ class Sorts
       }
     }
 
-        public static void quickSortRand(int[] A)
+    public static void quickSortRand(int[] A)
     {
       int lIdx = 0;
       int rIdx = A.length - 1;
@@ -223,7 +223,9 @@ class Sorts
     private static void quickSortRecurseRand(int[] A, int leftIdx, int rightIdx)
     {
       if(rightIdx > leftIdx){
-        int pivotIdx = (int)(Math.random() * A.length); // Random
+        Random r = new Random();
+        int pivotIdx = r.nextInt((rightIdx - leftIdx) + 1) + leftIdx; // random between left and right index
+        //int pivotIdx = (int)(Math.random() * length); // Random
         int newPivotIdx = doPartitioning(A, leftIdx, rightIdx, pivotIdx);
 
         quickSortRecurseRand(A, leftIdx, newPivotIdx - 1);

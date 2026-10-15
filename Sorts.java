@@ -105,8 +105,7 @@ class Sorts
         mergeSortRecurse(A, midIdx + 1, rightIdx);
 
         merge(A, leftIdx, midIdx, rightIdx);
-      } else 
-        System.out.println("Array is already sorted!");
+      }         
 
     }//mergeSortRecurse()
 

@@ -192,5 +192,44 @@ class Sorts
 		// return 0;	// TEMP - Replace this when you implement QuickSort
     }//doPartitioning
 
+    public static void quickSortMedian3(int[] A)
+    {
+      int lIdx = 0;
+      int rIdx = A.length - 1;
+
+      quickSortRecurseMed3(A, lIdx, rIdx);
+
+    }//quickSortMedian3()
+
+    private static void quickSortRecurseMed3(int[] A, int leftIdx, int rightIdx)
+    {
+      if(rightIdx > leftIdx){
+        int pivotIdx = (leftIdx + rightIdx) / 2; // median of three
+        int newPivotIdx = doPartitioning(A, leftIdx, rightIdx, pivotIdx);
+
+        quickSortRecurseMed3(A, leftIdx, newPivotIdx - 1);
+        quickSortRecurseMed3(A, newPivotIdx + 1, rightIdx);
+      }
+    }
+
+        public static void quickSortRand(int[] A)
+    {
+      int lIdx = 0;
+      int rIdx = A.length - 1;
+
+      quickSortRecurseRand(A, lIdx, rIdx);
+
+    }//quickSortMedian3()
+    private static void quickSortRecurseRand(int[] A, int leftIdx, int rightIdx)
+    {
+      if(rightIdx > leftIdx){
+        int pivotIdx = (int)(Math.random() * A.length); // Random
+        int newPivotIdx = doPartitioning(A, leftIdx, rightIdx, pivotIdx);
+
+        quickSortRecurseRand(A, leftIdx, newPivotIdx - 1);
+        quickSortRecurseRand(A, newPivotIdx + 1, rightIdx);
+      }
+    }
+
 
 }//end Sorts calss

@@ -33,6 +33,8 @@ class SortsTestHarness
         System.out.println("           i - insertion sort");
         System.out.println("           s - selection sort");
         System.out.println("           q - quicksort");
+        System.out.println("           y - quicksort Median Three"); // added by myself
+        System.out.println("           z - quicksort Random");       // added by myself
         System.out.println("           m - mergesort");
         System.out.println("        y is one of");
         System.out.println("           a - 1..n ascending");
@@ -110,6 +112,8 @@ class SortsTestHarness
                         case 'j' : Arrays.sort(A); break;    // Java's QuickSort
                         case 'm' : Sorts.mergeSort(A); break;
                         case 'i' : Sorts.insertionSort(A); break;
+                        case 'y' : Sorts.quickSortMedian3(A); break; // added by myself
+                        case 'z' : Sorts.quickSortRand(A); break;    // added by myself
                         //case 'h' : Sorts.heapSort(A); break;
                         default :
                             throw new IllegalArgumentException("Unsupported sort type " + sortType);

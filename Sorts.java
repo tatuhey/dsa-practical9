@@ -203,18 +203,23 @@ class Sorts
 
     private static void quickSortRecurseMed3(int[] A, int leftIdx, int rightIdx)
     {
-        int pivotIdx;
+      int pivotIdx;
+
       if(rightIdx > leftIdx){
         //int pivotIdx = (leftIdx + rightIdx) / 2; // median of three
         int midIdx = (leftIdx + rightIdx) / 2;
-        if((A[leftIdx] <= A[midIdx] && A[midIdx] <= A[rigthIdx]) || 
+
+        if((A[leftIdx] <= A[midIdx] && A[midIdx] <= A[rightIdx]) || 
             (A[rightIdx] <= A[midIdx] && A[midIdx] <= A[leftIdx])) {
             pivotIdx = midIdx;
-        } else if((A[midIdx] <= A[leftIdx] && A[leftIdx] <= A[rigtIdx]) ||
+
+        } else if((A[midIdx] <= A[leftIdx] && A[leftIdx] <= A[rightIdx]) ||
             (A[rightIdx] <= A[leftIdx] && A[leftIdx] <= A[midIdx])) {
             pivotIdx = leftIdx;
+
         } else {
             pivotIdx = rightIdx;
+            
         }
 
         int newPivotIdx = doPartitioning(A, leftIdx, rightIdx, pivotIdx);
